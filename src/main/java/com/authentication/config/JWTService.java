@@ -60,9 +60,9 @@ public class JWTService {
 
     private Claims extractAllClaims(String token) {
         return Jwts.parser()
-                .setSigningKey(getSecretKey()).build() // Set the secret key for signature verification
-                .parseClaimsJws(token) // Parse the token
-                .getBody(); // Extract the body which contains the claims
+                .setSigningKey(getSecretKey()).build()
+                .parseClaimsJws(token)
+                .getBody();
     }
 
     private Boolean isTokenExpired(String token) {
