@@ -38,6 +38,7 @@ public class SecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth->
                         auth.requestMatchers("/public/**").permitAll()
+                                .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
                                          .anyRequest().hasRole("Admin"))
 //                .formLogin(login->login.loginPage("/login").permitAll()
 //                        .defaultSuccessUrl("/health-check", true))
